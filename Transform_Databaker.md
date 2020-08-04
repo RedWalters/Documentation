@@ -41,18 +41,26 @@ We then move on to the main transformation of data. We'll an example of the Befo
 <pre><code>tidied_sheets = []
 
 for tab in tabs:
-    
-  year = tab.filter("Period").shift(X,Y).expand(DOWN).is_not_blank().is_not_whitespace()
-  
-  observations = tab.filter("Period").shift(2,4).expand(RIGHT).expand(DOWN).is_not_blank().is_not_whitespace()
 
-  dimensions = [
-            HDimConst('Dimension Name', 'Variable'),
-            HDim(selection, 'Dimension Name', CLOSEST, ABOVE), #CLOSEST/DIRECTLY, ABOVE/BELOW/LEFT/RIGHT
+    pivot = tab.filter('Beatles')
+
+    groups = pivot.expand(DOWN).is_not_blank()
+
+    members = pivot.shift(RIGHT).expand(DOWN).is_not_blank()
+
+    assets = pivot.shift(2, -2).expand(RIGHT).is_not_blank()
+
+    observations = members.fill(RIGHT).is_not_blank()
+
+    dimensions = [
+        HDim(groups, 'Groups', CLOSEST, ABOVE),
+        HDim(members, 'Group Members', DIRECTLY, LEFT),
+        HDim(assets, 'Personal Assets', DIRECTLY, ABOVE)
     ]
-    
-  tidy_sheet = ConversionSegment(tab, dimensions, observations)
-  savepreviewhtml(tidy_sheet, fname="Preview.html")
-  tidied_sheets.append(tidy_sheet.topandas())</code></pre>
+
+    tidy_sheet = ConversionSegment(tab, dimensions, observations)
+    savepreviewhtml(tidy_sheet, fname="Preview.html")
+
+    tidied_sheets.append(tidy_sheet.topandas())</code></pre>
   
   ![Databaker after](https://github.com/RedWalters/Documentation/blob/master/resources/after.PNG?raw=true)
