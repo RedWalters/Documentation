@@ -34,7 +34,7 @@ tabs = [x for x in tabs if x.name.endswith("data")]
 tabs = [x for x in tabs if x.name.startsswith("data")]
 </code></pre>
 
-We then move on to the main transformation of data. We'll an example of the Before state of the data and the code and then break it down.
+We then move on to the main transformation of data. We'll an example of the before state of the data and the code and then break it down.
 
 ![Databaker before](https://github.com/RedWalters/Documentation/blob/master/resources/before.PNG?raw=true)
 
