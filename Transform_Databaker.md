@@ -62,5 +62,10 @@ for tab in tabs:
     savepreviewhtml(tidy_sheet, fname="Preview.html")
 
     tidied_sheets.append(tidy_sheet.topandas())</code></pre>
-  
+
+Below you can see the output 'tidy' dataset and the preview which is created during the transformation.
+
+Datasets which have multiple tabs will either have the tabs combined into one dataset, or will have multiple outputs for each. 
+This depends on the complexity of the dataset.
+
   ![Databaker after](https://github.com/RedWalters/Documentation/blob/master/resources/after.PNG?raw=true)
