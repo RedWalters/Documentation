@@ -1,4 +1,4 @@
-# Tranform Wiki
+# Transform Wiki
 
 ##### This contains template for a basic transformation.
 ##### ADD LINKS TO SPECIFIC FUNCTION DOCUMENTATION (SUCH AS DATABAKER AND SUCH WHEN THEYRE CREATED/UPDATED)
