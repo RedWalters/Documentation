@@ -34,7 +34,7 @@ tabs = [x for x in tabs if x.name.endswith("data")]
 tabs = [x for x in tabs if x.name.startsswith("data")]
 </code></pre>
 
-We then move on to the main transformation of data. We'll an example of the before state of the data and the code and then break it down.
+We then move on to the main transformation of data. For detailed information on the variety of functions used in the transformation see the [Databaker Walkthrough](https://github.com/GSS-Cogs/databaker-walkthrough)
 
 ![Databaker before](https://github.com/RedWalters/Documentation/blob/master/resources/before.PNG?raw=true)
 
@@ -62,7 +62,7 @@ for tab in tabs:
     savepreviewhtml(tidy_sheet, fname="Preview.html")
 
     tidied_sheets.append(tidy_sheet.topandas())</code></pre>
-
+    
 Below you can see the output 'tidy' dataset and the preview which is created during the transformation.
 
 Datasets which have multiple tabs will either have the tabs combined into one dataset, or will have multiple outputs for each. 
